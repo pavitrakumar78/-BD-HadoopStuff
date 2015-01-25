@@ -99,6 +99,7 @@ Now create a directory called "input" and put the sample file in it using a dfs 
 bin/hadoop dfs -mkdir input
 bin/hadoop dfs -put weather_data input
 ```
+Note: Wait for a few seconds before execute commands such as put, since the file is large sometimes it may take more time.  
 Head over to these links to look at the status of the nodes.  
 http://localhost:50070/dfshealth.jsp  
 http://localhost:50030/jobtracker.jsp
