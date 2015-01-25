@@ -99,8 +99,8 @@ Now create a directory called "input" and put the sample file in it using a dfs 
 bin/hadoop dfs -mkdir input
 bin/hadoop dfs -put weather_data input
 ```
-If you get errors after executing the put command, wait for sometime and remove it and again after a few seconds try executing the same command
-To remove weather_data from input
+If you get errors after executing the put command, wait for sometime and remove it and again after a few seconds try executing the same command.  
+To remove weather_data from input:  
 ```
 bin/hadoop dfs -rm input/weather_data input
 ```
