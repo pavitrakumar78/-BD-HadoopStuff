@@ -78,7 +78,7 @@ jps
 ```
 You should see  
 ```
-jps xxxx
+xxxx jps
 ```
 xxxx - any processes ID  
 Now type:
@@ -86,3 +86,24 @@ Now type:
 ssh localhost
 ```
 This should now open a new prompt.
+
+5.To start a start hadoop service we need to format the namenode and then run it.
+```
+bin/hadoop namenode -format
+bin/start-all.sh
+jps
+```
+The jps will confirm that there are 6 processes running.
+Now create a directory called "input" and put the sample file in it using a dfs command
+```
+bin/hadoop dfs -mkdir input
+bin/hadoop dfs -put weather_data input
+```
+Head over to these links to look at the status of the nodes.  
+http://localhost:50070/dfshealth.jsp  
+http://localhost:50030/jobtracker.jsp
+
+To stop, execute the following command:
+```
+bin/stop-all.sh
+```
