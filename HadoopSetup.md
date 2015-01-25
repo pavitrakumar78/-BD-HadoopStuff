@@ -94,7 +94,12 @@ bin/hadoop namenode -format
 bin/start-all.sh
 jps
 ```
-The jps will confirm that there are 6 processes running.
+The jps will confirm that there are 6 processes running.  
+If you get a JAVA HOME not found error, edit your /conf/hadoop-env file and make sure to set the correct path.  
+You can access the JAVA_HOME vairable by:  
+```
+echo $JAVA_HOME
+```
 Now create a directory called "input" and put the sample file in it using a dfs command
 ```
 bin/hadoop dfs -mkdir input
