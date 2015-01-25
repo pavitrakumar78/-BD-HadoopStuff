@@ -43,7 +43,7 @@ sudo tar xvzf jdk-8u25-linux-x64.tar.gz
 
 Now, we need to set the system PATH vairable
 ```
-sudo nano /etc/profile
+sudo vi /etc/profile
 ```
 Append/Modify the following to the file:
 ```
