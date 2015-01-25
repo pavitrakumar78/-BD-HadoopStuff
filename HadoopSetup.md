@@ -22,7 +22,7 @@ It should be /home/hadoop/hadoop-1.2.1/[sample files here]
 ```
 unzip mapreduce_workshop.zip -d /home/hadoop/hadoop-1.2.1
 ```
-3.Now you need to modify files in the hadoop-1.2.1/conf
+3.Now you need to modify files in the hadoop-1.2.1/conf  
 Edit the following files using any editor you like and save them.  
 (Taken from [Single node setup guide](http://hadoop.apache.org/docs/r1.2.1/single_node_setup.html))  
 conf/core-site.xml:
