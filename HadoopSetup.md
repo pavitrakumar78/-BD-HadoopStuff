@@ -71,7 +71,7 @@ ls -l
    3. sudo apt-get install rsync
    4. Setup passphraseless ssh (means running the command “ssh localhost” must not prompt for a password). Run the following commands in a terminal (one after the other)
    5. ```ssh-keygen   -t    dsa   -P  ""   -f   ~/.ssh/id_dsa```
-   6. ```cat    ~/.ssh/id_dsa.pub    >>     ~/.ssh/authorized_keys```
+   6. ```cat    ~/.ssh/id_dsa.pub    >>     ~/.ssh/authorized_keys```  
 Test if you installed it properly by typing:  
 ```
 jps
