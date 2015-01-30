@@ -108,7 +108,7 @@ bin/hadoop dfs -put weather_data input
 If you get errors after executing the put command, wait for sometime and remove it and again after a few seconds try executing the same command.  
 To remove weather_data from input:  
 ```
-bin/hadoop dfs -rm input/weather_data input
+bin/hadoop dfs -rm input/weather_data
 ```
 Note: Wait for a few seconds before execute commands such as put, since the file is large sometimes it may take more time.  
 Head over to these links to look at the status of the nodes.  
