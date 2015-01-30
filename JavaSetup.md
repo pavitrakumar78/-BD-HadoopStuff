@@ -59,7 +59,10 @@ export JAVA_HOME
 export JRE_HOME
 export PATH
 ```
-
+For mac just add:
+```
+export JAVA_HOME=$(/usr/libexec/java_home)
+```
 Now we need to tell the system where the java files are located.
 For Java:
 ```
@@ -81,7 +84,7 @@ sudo update-alternatives --set javac /usr/local/java/jdk1.8.0_25/bin/java
 sudo update-alternatives --set javaws /usr/local/java/jdk1.8.0_25/bin/java
 ```
 
-Now reload the path and restart OS.
+Now reload the path and restart OS(this step applies for both ubuntu and mac).
 ```
 source /etc/profile
 ```
