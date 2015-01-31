@@ -95,4 +95,4 @@ have installed it correctly, enter the following command:
 java -version
 ```
 You will now see Java(TM) SE Runtime Environment.
-Now continue to this file [link] to setup Hadoop.
+Now continue to this [file](https://github.com/pavitrakumar78/-BD-HadoopStuff/blob/master/HadoopSetup.md) to setup Hadoop.
