@@ -89,7 +89,7 @@ Now reload the path and restart OS(this step applies for both ubuntu and mac).
 source /etc/profile
 ```
 
-You have now installed the required java for Hadoop setup, after you have completed all the steops given to check if you
+You have now installed the required java for Hadoop setup, after you have completed all the steps given to check if you
 have installed it correctly, enter the following command:
 ```
 java -version
