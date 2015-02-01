@@ -1,5 +1,6 @@
 #Setting up java on your Ubuntu
-
+##NOTE: Download the latest Java version from the given links also, your file name changes according to it!
+## It is usually jdk1.8.0_xx <-- 'xx' will vary!
 You need to have Oracle JRE/DJK installed on your system.
 To check, type:
 ```
