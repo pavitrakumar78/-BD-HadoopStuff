@@ -13,6 +13,32 @@ sudo adduser hadoop sudo
 ```
 ##All the steps below should be done after logging into your newly created "hadoop" user.
 
+2.Install Oracle java refer [here](https://github.com/pavitrakumar78/-BD-HadoopStuff/blob/master/JavaSetup.md)
+
+4.Install SSH  
+   1. Run the following commands in a terminal
+   2. sudo apt-get install ssh
+   3. sudo apt-get install rsync
+   4. Setup passphraseless ssh (means running the command “ssh localhost” must not prompt for a password). Run the following commands in a terminal (one after the other)
+   5. ```ssh-keygen   -t    dsa   -P  ""   -f   ~/.ssh/id_dsa```
+   6. ```cat    ~/.ssh/id_dsa.pub    >>     ~/.ssh/authorized_keys```  
+If you still prompted for password, refer [this](https://drive.google.com/file/d/0B7leFFFlwGgQY09vbnNkNktaTHc/view?usp=sharing)
+
+Test if you installed it properly by typing:  
+```
+jps
+```
+You should see  
+```
+xxxx jps
+```
+xxxx - any processes ID  
+Now type:
+```
+ssh localhost
+```
+This should now open a new prompt.
+
 2.Extract the Hadoop file into a folder "hadoop" in your /home directory
 ```
 tar -xf hadoop-1.2.1.tar.gz -C /home/hadoop
@@ -22,6 +48,9 @@ It should be /home/hadoop/hadoop-1.2.1/[sample files here]
 ```
 unzip mapreduce_workshop.zip -d /home/hadoop/hadoop-1.2.1
 ```
+##Till this is enough for tomorrows workshop, if you want you can try setting up a single cluster using the below
+##instruction on your own!
+
 3.Now you need to modify files in the hadoop-1.2.1/conf  
 Edit the following files using any editor you like and save them.  
 (Taken from [Single node setup guide](http://hadoop.apache.org/docs/r1.2.1/single_node_setup.html))  
@@ -64,29 +93,6 @@ check using
 ```
 ls -l
 ```
-
-4.Login to your new hadoop user account and install SSH  
-   1. Run the following commands in a terminal
-   2. sudo apt-get install ssh
-   3. sudo apt-get install rsync
-   4. Setup passphraseless ssh (means running the command “ssh localhost” must not prompt for a password). Run the following commands in a terminal (one after the other)
-   5. ```ssh-keygen   -t    dsa   -P  ""   -f   ~/.ssh/id_dsa```
-   6. ```cat    ~/.ssh/id_dsa.pub    >>     ~/.ssh/authorized_keys```  
-
-Test if you installed it properly by typing:  
-```
-jps
-```
-You should see  
-```
-xxxx jps
-```
-xxxx - any processes ID  
-Now type:
-```
-ssh localhost
-```
-This should now open a new prompt.
 
 5.To start a start hadoop service we need to format the namenode and then run it.
 ```
