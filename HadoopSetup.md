@@ -43,7 +43,7 @@ This should now open a new prompt.
 ```
 tar -xf hadoop-1.2.1.tar.gz -C /home/hadoop
 ```
-Now extract the sample files into the directory created inside "hadoop" file in your home directory.
+Now extract the sample files into the directory created inside "hadoop" file in your home directory.  
 It should be /home/hadoop/hadoop-1.2.1/[sample files here]
 ```
 unzip mapreduce_workshop.zip -d /home/hadoop/hadoop-1.2.1
