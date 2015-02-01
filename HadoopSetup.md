@@ -48,8 +48,7 @@ It should be /home/hadoop/hadoop-1.2.1/[sample files here]
 ```
 unzip mapreduce_workshop.zip -d /home/hadoop/hadoop-1.2.1
 ```
-##Till this is enough for tomorrows workshop, if you want you can try setting up a single cluster using the below
-##instruction on your own!
+##Till this is enough for tomorrows workshop, if you want you can try setting up a single cluster using the below instruction on your own!
 
 3.Now you need to modify files in the hadoop-1.2.1/conf  
 Edit the following files using any editor you like and save them.  
