@@ -1,30 +1,30 @@
 File systems  
 
-	-blocks
+-blocks
 
 
-	F11 F12 F13 F21
-	F22 F23 F24 F25
-	F51 F52 F41 F42
-	F43 F44 F53 F54
+F11 F12 F13 F21
+F22 F23 F24 F25
+F51 F52 F41 F42
+F43 F44 F53 F54
 
 
 
-	num of blocks = ceil(FILE_SIZE / blocksize)
+num of blocks = ceil(FILE_SIZE / blocksize)
 
-	File allocation table (FAT)
+File allocation table (FAT)
 	
-	Full Format - Removes bit-by-bit
-	Quick Format - erases file allocation table (RECOVERABLE)
+Full Format - Removes bit-by-bit
+Quick Format - erases file allocation table (RECOVERABLE)
 
 
-	File Allocation table
+File Allocation table
 
-	NAME | STARTING_BLOCK | SIZE
-	F1	1
-	F2	4
-	F4	11
-	F5	9
+NAME | STARTING_BLOCK | SIZE
+F1	1
+F2	4
+F4	11
+F5	9
 
 Fundamentals of Distributed File Systems(DFS)
 
@@ -38,94 +38,94 @@ Workshop Only steps
 	Fault tolerance
 	Disaster Management
 
-	Backup problems
-		-Inconsistency
-		-Versioning
+Backup problems
+	-Inconsistency
+	-Versioning
 
-	Rules:
+Rules:
 
-	1) Never keep multiple copies of a file in the same machine.
+1) Never keep multiple copies of a file in the same machine.
 
-	M0
+M0
 
-	M1	M2	M3	M4
+M1	M2	M3	M4
 	
-	M5	M6	M7	
+M5	M6	M7	
 
-	#BLOCK
-	BLOCK_SIZE
-	REPLICATION_FACTOR=3
+#BLOCK
+BLOCK_SIZE
+REPLICATION_FACTOR=3
 
-	Assuming the machines at picked at random
+Assuming the machines at picked at random
 
-	NAME | BLOCK# | COPY# | MACHINE# | SIZE
-	F1	1	1	M4
-	F1	1	2	M3
-	F1	1	3	M7
-	F1	2	1	M2	
-	F1	2	2	M5
-	F1	2	3	M6	
+NAME | BLOCK# | COPY# | MACHINE# | SIZE
+F1	1	1	M4
+F1	1	2	M3
+F1	1	3	M7
+F1	2	1	M2	
+F1	2	2	M5
+F1	2	3	M6	
 
-	M0 -> master
-	M1 - M7 -> Slaves
+M0 -> master
+M1 - M7 -> Slaves
 
-	Master - Namenode (SERVER in Hadoop System) - ONLY ONE
-	Slave - Datanode runs in several machines (CLIENT)
+Master - Namenode (SERVER in Hadoop System) - ONLY ONE
+Slave - Datanode runs in several machines (CLIENT)
 
 
-	1) Data Registration(ping)
-	2) HEART BEAT - Datanode communicates with the namenode (continuous registraition by the datanodes)
-	if there is no communication the data node is considered dead
+1) Data Registration(ping)
+2) HEART BEAT - Datanode communicates with the namenode (continuous registraition by the datanodes)
+if there is no communication the data node is considered dead
 
   Ping visualization:
 	"hi namenode i am datanode and i have this much free space"
 
 
-	Namenode maintains the metadata
-	Datanode maintains the actual data
+Namenode maintains the metadata
+Datanode maintains the actual data
+
+we delete the table
+datanode deletes the data
 	
-	we delete the table
-	datanode deletes the data
-	
-	Unlike quick format, deleting the table deletes the data in dfs.
+Unlike quick format, deleting the table deletes the data in dfs.
 
-	What happens if the namenode crashes?
-		Secondary namenode will take care (command: jps)
-		It compacts only edit logs
-		So not completely recoverable
+What happens if the namenode crashes?
+	Secondary namenode will take care (command: jps)
+	It compacts only edit logs
+	So not completely recoverable
 
-	Namenode doesn't have backups
+Namenode doesn't have backups
 
-	Namenode is central point of failure in hadoop 1.2.1
-	Fixed in later versions (hadoop 2.0)
+Namenode is central point of failure in hadoop 1.2.1
+Fixed in later versions (hadoop 2.0)
 	
 	
-	Namenode is maintained in MAIN MEMORY (RAM)
+Namenode is maintained in MAIN MEMORY (RAM)
 	
-	Reboot will bring the Namenode from the backup
-	But if the backup is corrupted, data is irrecoverable
+Reboot will bring the Namenode from the backup
+But if the backup is corrupted, data is irrecoverable
 
 
-	http://localhost:50070/dfshealth.jsp ---> front end of the namenode
+http://localhost:50070/dfshealth.jsp ---> front end of the namenode
 
 
-	Where should the namenode run is specified by the core-site.xml file 
-	i.e. 500070
+Where should the namenode run is specified by the core-site.xml file 
+i.e. 500070
 
-	dfstemp is the directory for namenode backup (internal temporary files)
+dfstemp is the directory for namenode backup (internal temporary files)
 
-	hdfs-site has the property of dfs (file system)
-	directory where datanode should store the blocks
+hdfs-site has the property of dfs (file system)
+directory where datanode should store the blocks
 	
-	Live node = data node running currently
+Live node = data node running currently
 
-	how to talk to the hadoop system
-	bin/hadoop <subsystem> -<cmd> args
+how to talk to the hadoop system
+bin/hadoop <subsystem> -<cmd> args
 
 
-	Subsytems. two types
-		-namenode
-		-dfs
+Subsytems. two types
+	-namenode
+	-dfs
 
 Number of under-replicated blocks should be zero
 Default block size = 64 MB
@@ -231,47 +231,44 @@ if no reply marks the task tracker as dead.
 
 
 
-	Legend:
-		Namenode(NN)	
-		Secondary Namenode(SNN)		
-		DataNode(DN)	
-		JobTracker(JT)
-		TaskTracker(TT)
+Legend:
+	Namenode(NN)	
+	Secondary Namenode(SNN)		
+	DataNode(DN)	
+	JobTracker(JT)
+	TaskTracker(TT)
 
 
-		NN	SNN	DN1	DN2
-				TT	TT
+	NN	SNN	DN1	DN2
+			TT	TT
 
-		DN3	DN4	DN5	DN6
-		TT	TT	TT	TT
+	DN3	DN4	DN5	DN6
+	TT	TT	TT	TT
 
-		DN7	DN8	DN9
-		TT	TT	TT
-		JT
+	DN7	DN8	DN9
+	TT	TT	TT
+	JT
 
-		
 
+Namenode's metadata table
+
+	File	Block	Copy	Datanode
 	
+	F1	1	1	DN1
+	F1	1 	2	DN6	(need not process the copies of same code by giving it to multiple datanodes)
+	F1	1	3	DN4	(the mapreduce code is sent randomnly to one of the three datanodes)
 
-	Namenode's metadata table
-
-		File	Block	Copy	Datanode
-	
-		F1	1	1	DN1
-		F1	1 	2	DN6	(need not process the copies of same code by giving it to multiple datanodes)
-		F1	1	3	DN4	(the mapreduce code is sent randomnly to one of the three datanodes)
-
-		F1	2	1	DN7
-		F1	2	2	DN8
-		F1	2	3	DN2
+	F1	2	1	DN7
+	F1	2	2	DN8
+	F1	2	3	DN2
 
 
-	Datanode and task tracker run int the ame machine (why? - therla)
-	others run on separate machine
+Datanode and task tracker run int the ame machine (why? - therla)
+others run on separate machine
 
-	jar is similar to a zip file
-	three classes are put in a jar
-	job tracker unzips and starts the process
+jar is similar to a zip file
+three classes are put in a jar
+job tracker unzips and starts the process
 
 how does the task tracker know where task tracker is running?
 map-red-site
@@ -321,7 +318,7 @@ Increase map max tasks of a job - mapred-site
 machine dependent for map capacity
 
 
-#output files = #reduce task processes
+ #output files = #reduce task processes
 
 order is not guaranteed in each of the output files
 
