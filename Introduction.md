@@ -80,8 +80,7 @@ Slave - Datanode runs in several machines (CLIENT)
 2) HEART BEAT - Datanode communicates with the namenode (continuous registraition by the datanodes)  
 if there is no communication the data node is considered dead  
 
-Ping visualization:  
-	"hi namenode i am datanode and i have this much free space"  
+Ping from datanode to namenode confirms datanode's existance.
 
 
 Namenode maintains the metadata  
@@ -357,8 +356,8 @@ java version must be highes for task trackers than that of job trackers
 
 Host names must be unique  
 
-Masters  
--------
+ Masters  
+ -------
 Namenode  
 Job trackers  
 Secondary namenode  
