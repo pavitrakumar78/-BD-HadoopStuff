@@ -3,12 +3,12 @@
 File systems    
 
 -blocks  
-
+```
 F11 F12 F13 F21  
 F22 F23 F24 F25  
 F51 F52 F41 F42  
 F43 F44 F53 F54  
-
+```
 
 
 num of blocks = ceil(FILE_SIZE / blocksize)  
