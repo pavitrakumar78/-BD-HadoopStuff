@@ -1,7 +1,8 @@
+#Day 1
+
 File systems  
 
 -blocks
-
 
 F11 F12 F13 F21
 F22 F23 F24 F25
@@ -131,14 +132,14 @@ Number of under-replicated blocks should be zero
 Default block size = 64 MB
 Default replication factor = 3
 
-
+```
 	person1		person2		person3
 	B,1		B,1		B,1
 	B,1		B,1		B,1
 	G,1		G,1		G,1
 	Y,1		Y,1		Y,1
 	Y,1		Y,1		Y,1
-	
+```	
 
 	INPUT RECORD - line from file
 
@@ -155,7 +156,7 @@ Default replication factor = 3
 	This is given as an input to REDUCE
 
 	Claculate the average temperature of a country (key - country)
-
+```
 		map
 		
 			values(4) = split input line by tab
@@ -163,7 +164,7 @@ Default replication factor = 3
 			value = convertToNumber values(3)
 
 			output(key, value)
-
+			
 		reduce
 
 			sum = 0
@@ -175,10 +176,10 @@ Default replication factor = 3
 				count++
 
 			output (key, sum/count)
-
+```
 
 	Calculate the average temperature of a zip in a country (key - Counntry, zip)
-
+```
 		map
 
 			values(4) = split input line by tab
@@ -188,16 +189,14 @@ Default replication factor = 3
 			output(key, value)
 
 		reduce
-
+```
 
 hadoop/hadoop-1.2.1/playground/src$
 
 map fucntion
 
 
-----------------------------------------------------------------------------------------------------------
-
-Day - 2
+#Day - 2
 
 
 Dont bring data where you want to run the program.
@@ -238,7 +237,7 @@ Legend:
 	JobTracker(JT)
 	TaskTracker(TT)
 
-
+```
 	NN	SNN	DN1	DN2
 			TT	TT
 
@@ -248,10 +247,10 @@ Legend:
 	DN7	DN8	DN9
 	TT	TT	TT
 	JT
-
+```
 
 Namenode's metadata table
-
+```
 	File	Block	Copy	Datanode
 	
 	F1	1	1	DN1
@@ -261,7 +260,7 @@ Namenode's metadata table
 	F1	2	1	DN7
 	F1	2	2	DN8
 	F1	2	3	DN2
-
+```
 
 Datanode and task tracker run int the ame machine (why? - therla)
 others run on separate machine
@@ -294,27 +293,33 @@ Commodity hardware are enough to process large data.
 
 
 Increase reducer max tasks of this machine - mapred-site
+```
      <property>
          <name>mapred.tasktracker.reduce.tasks.maximum</name>
          <value>4</value>
      </property>
+```
 machine dependent
 
 
 Increase reducer max tasks of a job - mapred-site
+```
      <property>
          <name>mapred.reduce.tasks</name>
          <value>4</value>
      </property>
+```
 not machine dependent
 job dependent
 
 
 Increase map max tasks of a job - mapred-site
+```
      <property>
          <name>mapred.tasktracker.map.tasks.maximum</name>
          <value>4</value>
      </property>
+```
 machine dependent for map capacity
 
 
@@ -323,8 +328,8 @@ machine dependent for map capacity
 order is not guaranteed in each of the output files
 
 
-Hadoop small file problem
--------------------------
+ Hadoop small file problem
+ -------------------------
 in dfs if the block size if 64MB
 if 1000 input files are put and each is 1MB
 
