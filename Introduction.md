@@ -52,9 +52,9 @@ M1	M2	M3	M4
 	
 M5	M6	M7	
 
-#BLOCK
-BLOCK_SIZE
-REPLICATION_FACTOR=3
+ #BLOCK
+ BLOCK_SIZE
+ REPLICATION_FACTOR=3
 
 Assuming the machines at picked at random
 
