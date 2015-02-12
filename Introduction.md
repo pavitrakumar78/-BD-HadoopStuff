@@ -327,8 +327,7 @@ machine dependent for map capacity
 order is not guaranteed in each of the output files  
 
 
- Hadoop small file problem  
- -------------------------
+Hadoop small file problem :  
 in dfs if the block size if 64MB  
 if 1000 input files are put and each is 1MB  
 
@@ -356,8 +355,7 @@ java version must be highes for task trackers than that of job trackers
 
 Host names must be unique  
 
- Masters  
- -------
+Masters:  
 Namenode  
 Job trackers  
 Secondary namenode  
@@ -366,10 +364,7 @@ Secondary namenode
 To automate the master and slaves ip address  
 paste the ip address in slaves and master file in conf folder  
 
-
 DATA PIPELINE  
-
-
 
 http://localhost:50030/jobtracker.jsp	- MapReduce  
 http://localhost:50070/dfshealth.jsp	- Namenode  
