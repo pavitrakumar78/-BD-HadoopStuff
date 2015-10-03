@@ -369,4 +369,4 @@ DATA PIPELINE
 http://localhost:50030/jobtracker.jsp	- MapReduce  
 http://localhost:50070/dfshealth.jsp	- Namenode  
   
-Notes compiled by : Bharath Bhargav
+Notes compiled by : Bharath Bhargav and Pavitrakumar
